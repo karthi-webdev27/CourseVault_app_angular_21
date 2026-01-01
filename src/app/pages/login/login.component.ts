@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
+
+  
   
 
   
