@@ -1,1 +1,145 @@
-<p>batch works!</p>
+<div class="parent">
+    <div class="animated-background">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="main-container">
+
+
+        <div class="card-container">
+            <form>
+                <div class="form-group">
+                    <label for="batchName">Batch Name <span class="required">*</span></label>
+                    <input type="text" id="batchName" name="batchName" placeholder="e.g., Winter Campaign 2026"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="batchDescription">Description</label>
+                    <textarea id="batchDescription" name="batchDescription"
+                        placeholder="Provide a detailed description of the batch..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="startDate">Start Date <span class="required">*</span></label>
+                        <input type="date" id="startDate" name="startDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endDate">End Date <span class="required">*</span></label>
+                        <input type="date" id="endDate" name="endDate" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="status">Status <span class="required">*</span></label>
+                        <select id="status" name="status" required>
+                            <option value="">Select Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority" name="priority">
+                            <option value="">Select Priority</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="assignee">Assigned To</label>
+                    <input type="text" id="assignee" name="assignee" placeholder="e.g., John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input type="text" id="tags" name="tags" placeholder="e.g., marketing, campaign, 2026">
+                </div>
+
+                <div class="form-actions">
+                    <button href="#" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-create">Create Batch</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="card-container">
+            <div class="toolbar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search by batch name...">
+                </div>
+                <button class="btn-create">+ Create Batch</button>
+            </div>
+
+            <table class="batch-table">
+                <thead>
+                    <tr>
+                        <th>Batch ID</th>
+                        <th>Batch Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="batch-id">#001</td>
+                        <td class="batch-name">Winter Campaign 2026</td>
+                        <td class="date-display">Jan 03, 2026</td>
+                        <td class="date-display">Jan 31, 2026</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-sm btn-view">View</button>
+                                <button class="btn-sm btn-edit">Edit</button>
+                                <button class="btn-sm btn-delete">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="batch-id">#002</td>
+                        <td class="batch-name">Spring Launch</td>
+                        <td class="date-display">Feb 15, 2026</td>
+                        <td class="date-display">Mar 31, 2026</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-sm btn-view">View</button>
+                                <button class="btn-sm btn-edit">Edit</button>
+                                <button class="btn-sm btn-delete">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="batch-id">#003</td>
+                        <td class="batch-name">Summer Program</td>
+                        <td class="date-display">Jun 01, 2026</td>
+                        <td class="date-display">Aug 31, 2026</td>
+                        <td><span class="status-badge status-inactive">Inactive</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-sm btn-view">View</button>
+                                <button class="btn-sm btn-edit">Edit</button>
+                                <button class="btn-sm btn-delete">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

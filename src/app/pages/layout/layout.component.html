@@ -10,13 +10,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navMenu">
             <ul class="navbar-nav gap-4">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Dashboard</a>
+                    <button (click)="toDashboard()" class="nav-link active" href="void:javascript(0)">Dashboard</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Batch</a>
+                    <button (click)="toBatch()" class="nav-link" href="void:javascript(0)">Batch</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <button (click)="toProfile()" class="nav-link" href="void:javascript(0)">My Profile</button>
                 </li>
                 <li class="nav-item">
                     <button (click)="logOff()" class="nav-link btn-nav" href="#">Logoff</button>

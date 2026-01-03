@@ -1,7 +1,8 @@
 import { Component, inject, Inject } from '@angular/core';
 import { Router, RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms';
-import { InternalService } from '../../service/internal.service';
+import { InternalService } from '../../core/service/internal.service';
+import { GlobalConstant } from '../../core/constants/Global.constant';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent {
     this.internalService.getCandidateId(this.loginObject).subscribe({
       next: (resp:any) => {
         console.log(resp);
-        localStorage.setItem('login_key', JSON.stringify(resp.data));
+        localStorage.setItem(GlobalConstant.LOGIN_KEY, JSON.stringify(resp.data));
         if(resp.result) {
           window.alert(resp.message)
           this.router.navigate(['/dashboard']);
