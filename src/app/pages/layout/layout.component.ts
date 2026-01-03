@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -7,6 +7,16 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
+  
+  router = inject(Router);
+  
+  ngOnInit(): void {
+  }
 
+  logOff() {
+    localStorage.removeItem('login_key');
+    alert('Logout Successfull')
+    this.router.navigate(['login']);
+  }
 }

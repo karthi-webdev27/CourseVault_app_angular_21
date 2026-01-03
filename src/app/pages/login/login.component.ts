@@ -1,20 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, Inject } from '@angular/core';
+import { Router, RouterLink } from "@angular/router";
+import { FormsModule } from '@angular/forms';
+import { InternalService } from '../../service/internal.service';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [RouterLink,FormsModule],
   standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit {
-  constructor(private readonly formBuilder: FormBuilder) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+export class LoginComponent {
+
+  router = inject(Router);
+
+  apiUrl = 'https://feestracking.freeprojectapi.com/api/BatchUser/login';
+  
+  loginObject: any = {
+    email : '',
+    password : ''
+  };
+  constructor(
+    private readonly internalService: InternalService
+  ) {}
+
+  loginCheck() {
+    this.internalService.getCandidateId(this.loginObject).subscribe({
+      next: (resp:any) => {
+        console.log(resp);
+        localStorage.setItem('login_key', JSON.stringify(resp.data));
+        if(resp.result) {
+          window.alert(resp.message)
+          this.router.navigate(['/dashboard']);
+        }
+        }, error: (err:any) => {
+      
+          window.alert(err.message)
+      }
+    })
+
   }
 
-  
   
 
   

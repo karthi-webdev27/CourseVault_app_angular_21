@@ -1,2 +1,33 @@
-<p>layout works!</p>
-<router-outlet/>
+<nav class="navbar navbar-expand-lg modern-navbar">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Coursevault</a>
+        <!-- <p>Hi {{username.fullName}}</p> -->
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+            <ul class="navbar-nav gap-4">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Batch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <button (click)="logOff()" class="nav-link btn-nav" href="#">Logoff</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+<router-outlet />

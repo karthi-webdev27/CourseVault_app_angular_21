@@ -1,0 +1,76 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Navbar background */
+.modern-navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+}
+
+/* Brand */
+.navbar-brand {
+  color: #ffffff;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+}
+
+/* Nav links */
+.nav-link {
+  color: #e0e0e0;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #00f2fe;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Hover color */
+.nav-link:hover {
+  color: #00f2fe;
+}
+
+/* Login button style */
+.btn-nav {
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #000 !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-nav::after {
+  display: none;
+}
+
+.btn-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 242, 254, 0.4);
+}
+
+/* Responsive fix */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
