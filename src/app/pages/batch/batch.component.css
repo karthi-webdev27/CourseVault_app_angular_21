@@ -1,22 +1,46 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
-.parent {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* PAGE BACKGROUND */
+.page-wrapper {
   min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
+  padding: 40px;
+  background: linear-gradient(135deg, #f9faff, #f7f7f8);
+}
+
+/* MAIN LAYOUT */
+.layout {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* COMMON CARD STYLE */
+.card {
+  background: #f9faff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* LEFT CARD (FORM) */
+.create-card {
+  width: 420px; /* fixed width */
+}
+
+/* RIGHT CARD (TABLE) */
+.list-card {
+  width: calc(100% - 420px - 32px); /* remaining space */
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .left-card {
+    width: 100%;
+  }
 }
 
 .animated-background {
@@ -69,9 +93,11 @@ body {
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
+
   33% {
     transform: translate(30px, -50px) rotate(120deg);
   }
+
   66% {
     transform: translate(-20px, 20px) rotate(240deg);
   }
@@ -84,43 +110,18 @@ body {
   min-height: 100vh;
 }
 
-.header-section {
-  animation: slideDown 0.6s ease-out;
-  margin-bottom: 2rem;
-}
-
-@keyframes slideDown {
+@keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.header-title {
-  color: white;
-  font-weight: 700;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.header-subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1rem;
-}
-
-.card-container {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 2rem;
-  animation: slideUp 0.6s ease-out;
-}
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -152,15 +153,18 @@ body {
   border-color: #667eea;
   box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
 .form-actions {
   display: flex;
   gap: 1rem;
@@ -168,15 +172,48 @@ body {
   justify-content: flex-end;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.btn-secondary:hover {
+  background: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.required {
+  color: #ef4444;
 }
 
 .toolbar {
@@ -212,17 +249,6 @@ body {
 .btn-create {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 10px 24px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  font-family: inherit;
-}
-.btn-cancel {
-  background: linear-gradient(135deg, #cbcbcf 0%, #a4a2a7 100%);
-  color: black;
   border: none;
   border-radius: 12px;
   padding: 10px 24px;
@@ -403,5 +429,39 @@ body {
   .btn-sm {
     padding: 4px 8px;
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.75rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card-container {
+    padding: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1024px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .create-card,
+  .list-card {
+    width: 100%;
   }
 }

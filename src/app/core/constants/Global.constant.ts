@@ -3,6 +3,12 @@ export const GlobalConstant = {
 };
 
 export const ApiMethodConstant = {
-  BATCH_USER: '/BatchUser',
-  LOGIN: '/login',
+  batch_user: {
+    BATCH_USER: '/BatchUser',
+    LOGIN: '/login',
+  },
+
+  batches: {
+    BATCHES: '/Batches',
+  },
 };

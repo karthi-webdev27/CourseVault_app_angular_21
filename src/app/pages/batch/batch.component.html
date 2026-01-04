@@ -1,14 +1,8 @@
-<div class="parent">
-    <div class="animated-background">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
+<div class="page-wrapper">
+    <div class="layout">
 
-    <div class="main-container">
-
-
-        <div class="card-container">
+        <!-- LEFT : CREATE FORM CARD -->
+        <div class="card create-card">
             <form>
                 <div class="form-group">
                     <label for="batchName">Batch Name <span class="required">*</span></label>
@@ -69,20 +63,20 @@
                 </div>
 
                 <div class="form-actions">
-                    <button href="#" class="btn-cancel">Cancel</button>
-                    <button type="submit" class="btn-create">Create Batch</button>
+                    <a href="batch-list.html" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Create Batch</button>
                 </div>
             </form>
         </div>
 
-
-        <div class="card-container">
-            <div class="toolbar">
+        <!-- RIGHT : LIST / TABLE CARD -->
+        <div class="card list-card">
+            <!-- <div class="toolbar">
                 <div class="search-box">
                     <input type="text" placeholder="Search by batch name...">
                 </div>
                 <button class="btn-create">+ Create Batch</button>
-            </div>
+            </div> -->
 
             <table class="batch-table">
                 <thead>
@@ -141,5 +135,6 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 </div>

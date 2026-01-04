@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { GlobalConstant } from '../../core/constants/Global.constant';
 
 @Component({
@@ -13,10 +13,10 @@ export class LayoutComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   toBatch() {
-    this.router.navigate(['/batch']);
+    this.router.navigate(['batch']);
   }
   toDashboard() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['dashboard']);
   }
 
   router = inject(Router);

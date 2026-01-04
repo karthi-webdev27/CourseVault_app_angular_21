@@ -9,11 +9,18 @@ import { ApiMethodConstant } from '../constants/Global.constant';
 export class InternalService {
   https = inject(HttpClient);
 
-  getCandidateId(payload: any) {
+  getCandidateDetails(payload: any) {
     return this.https.post(
       environment.API_URL +
-        ApiMethodConstant.BATCH_USER +
-        ApiMethodConstant.LOGIN,
+        ApiMethodConstant.batch_user.BATCH_USER +
+        ApiMethodConstant.batch_user.LOGIN,
+      payload
+    );
+  }
+
+  createBatches(payload: any) {
+    return this.https.post(
+      environment.API_URL + ApiMethodConstant.batches.BATCHES,
       payload
     );
   }
