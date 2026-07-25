@@ -1,0 +1,60 @@
+<div class="crisis-wrapper" [class.emergency-mode]="result()?.requiresEmergencyUI">
+  <main class="content-container">
+    
+    @if (!result()) {
+      <header class="header">
+        <h1>Crisis Evaluation Engine</h1>
+        <p>Please share what you are experiencing right now. We are here to listen and help.</p>
+      </header>
+
+      <div class="input-section">
+        <textarea
+          [(ngModel)]="transcript"
+          placeholder="Type or paste your thoughts here..."
+          rows="8"
+          [disabled]="isLoading()"
+        ></textarea>
+
+        <button class="submit-btn" (click)="onSubmit()" [disabled]="isLoading() || !transcript().trim()">
+          @if (isLoading()) {
+            <span class="spinner"></span> Processing...
+          } @else {
+            Get Immediate Support
+          }
+        </button>
+
+        @if (errorMessage()) {
+          <div class="error-message">
+            {{ errorMessage() }}
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="result-section">
+        @if (result()?.requiresEmergencyUI) {
+          <div class="emergency-alert">
+            <h2>EMERGENCY SUPPORT ACTIVATED</h2>
+            <p class="script-text">{{ result()?.deEscalationScript }}</p>
+          </div>
+        } @else {
+          <div class="standard-support">
+            <h2>Support Guidance</h2>
+            <p class="script-text">{{ result()?.deEscalationScript }}</p>
+          </div>
+        }
+
+        <div class="meta-info">
+          <span class="badge" [attr.data-risk]="result()?.riskLevel">
+            Risk Level: {{ result()?.riskLevel }}
+          </span>
+          <span class="badge emotion">
+            Primary Emotion: {{ result()?.primaryEmotion }}
+          </span>
+        </div>
+
+        <button class="reset-btn" (click)="reset()">Start Over</button>
+      </div>
+    }
+
+  </main>
+</div>
