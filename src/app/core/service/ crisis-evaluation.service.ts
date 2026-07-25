@@ -18,7 +18,7 @@ export interface CrisisEvaluationResponse {
 })
 export class CrisisEvaluationService {
   private http = inject(HttpClient);
-  private readonly API_URL = 'https://crisis-backend.onrender.com/api/evaluate';
+  private readonly API_URL = 'https://crisis-backend.onrender.com';
 
   evaluate(transcript: string): Observable<CrisisEvaluationResponse> {
     return this.http.post<CrisisEvaluationResponse>(this.API_URL, { transcript });
