@@ -13,7 +13,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: CrisisComponent,
   },
   {
     path: '',
